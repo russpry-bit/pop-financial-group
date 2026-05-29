@@ -733,7 +733,7 @@
     <li><a href="#why">Why Us</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+    <li><a href="https://calendly.com/russpry-popfinancialgroup" target="_blank" class="nav-cta">Book a Call</a></li>
   </ul>
 </nav>
 
@@ -746,7 +746,7 @@
   <h1 class="hero-h1">Protect What You've Built.<br><em>On Purpose.</em></h1>
   <p class="hero-sub">Purposeful life insurance and annuity solutions for families and individuals in Silver Spring and beyond. We compare 30+ carriers to find you the right protection — not just the easiest sale.</p>
   <div class="hero-btns">
-    <a href="#contact" class="btn-gold">📞 Book a Free Consultation</a>
+    <a href="https://calendly.com/russpry-popfinancialgroup" target="_blank" class="btn-gold">📞 Book a Free Consultation</a>
     <a href="#services" class="btn-ghost">See Our Services</a>
   </div>
   <div class="hero-divider"></div>
@@ -958,7 +958,12 @@
   <div class="section">
     <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Get in Touch</span></div>
     <h2 class="section-h2">Let's Start Your<br><em>Protection Plan</em></h2>
-    <div class="contact-grid">
+    <div style="margin-bottom:28px; text-align:center; background:linear-gradient(135deg,#181510,#1c1508); padding:32px; border:1px solid rgba(200,152,42,0.2);">
+  <p style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#C8982A; font-weight:600; margin-bottom:8px;">Prefer to Pick a Time?</p>
+  <p style="font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:20px; font-weight:300;">Skip the form — book your free 20-minute consultation directly on my calendar.</p>
+  <a href="https://calendly.com/russpry-popfinancialgroup" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#C8982A,#E2B84A); color:#fff; padding:16px 44px; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; box-shadow:0 4px 24px rgba(200,152,42,0.3); transition:transform 0.2s;">📅 Book on My Calendar</a>
+</div>
+<div class="contact-grid">
       <div class="contact-info">
         <a href="tel:+12028366786" class="cinfo-item" style="text-decoration:none; color:inherit;">
           <div class="cinfo-icon">📞</div>
@@ -977,23 +982,23 @@
           <div><div class="cinfo-label">Hours</div><div class="cinfo-val">Mon – Fri: 9am – 6pm<br>Sat: By Appointment</div></div>
         </div>
       </div>
-      <div class="form-card">
+      <form action="https://formspree.io/f/meednzak" method="POST"><input type="hidden" name="_subject" value="New Consultation Request — POP Financial Group"><input type="hidden" name="_replyto" value="russpry@popfinancialgroup.com"><div class="form-card">
         <div class="form-title">Request a Free Review</div>
         <div class="form-row">
           <label>Your Name</label>
-          <input type="text" placeholder="First &amp; Last Name">
+          <input type="text" name="name" placeholder="First &amp; Last Name">
         </div>
         <div class="form-row">
           <label>Phone Number</label>
-          <input type="tel" placeholder="(301) 000-0000">
+          <input type="tel" name="phone" placeholder="(202) 000-0000">
         </div>
         <div class="form-row">
           <label>Email Address</label>
-          <input type="email" placeholder="you@email.com">
+          <input type="email" name="email" placeholder="you@email.com">
         </div>
         <div class="form-row">
           <label>I Need Coverage For</label>
-          <select>
+          <select name="coverage_type">
             <option value="">Select a coverage type...</option>
             <option>Term Life Insurance</option>
             <option>Whole / Universal Life</option>
@@ -1007,12 +1012,13 @@
         </div>
         <div class="form-row">
           <label>Message (Optional)</label>
-          <textarea placeholder="Tell us a little about your situation..."></textarea>
+          <textarea name="message" placeholder="Tell us a little about your situation..."></textarea>
         </div>
-        <button class="form-submit">Send My Request →</button>
-      </div>
+        <button class="form-submit" type="submit">Send My Request →</button>
+      </div></form>
     </div>
   </div>
+</div>
 </div>
 
 <!-- FOOTER -->
@@ -1079,15 +1085,7 @@
     io.observe(el);
   });
 
-  // Form submit
-  document.querySelector('.form-submit').addEventListener('click', function() {
-    this.textContent = '✓ Request Sent!';
-    this.style.background = '#2a7a4a';
-    setTimeout(() => {
-      this.textContent = 'Send My Request →';
-      this.style.background = '';
-    }, 3000);
-  });
+
 </script>
 </body>
 </html>
