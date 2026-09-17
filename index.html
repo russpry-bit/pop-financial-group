@@ -1298,9 +1298,11 @@
   const campaignParams = new URLSearchParams(window.location.search);
   ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(name => {
     const incoming = campaignParams.get(name);
-    if (incoming) sessionStorage.setItem('pop_' + name, incoming);
+    let stored = '';
+    try { stored = sessionStorage.getItem('pop_' + name) || ''; } catch (e) {}
     const field = document.querySelector('[name="' + name + '"]');
-    if (field) field.value = incoming || sessionStorage.getItem('pop_' + name) || '';
+    if (field) field.value = incoming || stored;
+    if (incoming) { try { sessionStorage.setItem('pop_' + name, incoming); } catch (e) {} }
   });
   if (leadForm) {
     leadForm.addEventListener('submit', () => {
