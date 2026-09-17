@@ -886,19 +886,19 @@
     <h2 class="section-h2" id="path-heading">Choose Your<br><em>Protection Path</em></h2>
     <p class="section-p">Select the goal that best matches your situation. We will use it to make your review more focused and useful.</p>
     <div class="path-grid">
-      <a class="path-card" href="#contact" data-coverage="Term Life Insurance">
+      <a class="path-card" href="family-protection.html?utm_source=website&amp;utm_medium=homepage&amp;utm_campaign=protect_what_you_built">
         <span class="path-kicker">For families</span>
         <h3 class="path-title">Protect My Family</h3>
         <p class="path-copy">Review income replacement, mortgage protection, final expenses, and coverage for your children’s future.</p>
         <span class="path-link">Start my family review →</span>
       </a>
-      <a class="path-card" href="#contact" data-coverage="Retirement Income Planning">
+      <a class="path-card" href="retirement-income.html?utm_source=website&amp;utm_medium=homepage&amp;utm_campaign=protect_what_you_built">
         <span class="path-kicker">For retirement</span>
         <h3 class="path-title">Create Reliable Income</h3>
         <p class="path-copy">Explore protected-income options, retirement gaps, beneficiary planning, and appropriate annuity strategies.</p>
         <span class="path-link">Start my retirement review →</span>
       </a>
-      <a class="path-card" href="#contact" data-coverage="Key-Person / Business Life">
+      <a class="path-card" href="business-protection.html?utm_source=website&amp;utm_medium=homepage&amp;utm_campaign=protect_what_you_built">
         <span class="path-kicker">For business owners</span>
         <h3 class="path-title">Protect My Business</h3>
         <p class="path-copy">Review key-person coverage, buy-sell funding, business continuity, and executive-benefit strategies.</p>
@@ -1133,7 +1133,7 @@
           <div><div class="cinfo-label">Hours</div><div class="cinfo-val">Mon – Fri: 9am – 6pm<br>Sat: By Appointment</div></div>
         </div>
       </div>
-      <form action="https://formspree.io/f/meednzak" method="POST" id="lead-form"><input type="hidden" name="_subject" value="New Protection Review Request — POP Financial Group"><input type="hidden" name="lead_source" value="POP Financial Group Website"><div class="form-card">
+      <form action="https://formspree.io/f/meednzak" method="POST" id="lead-form"><input type="hidden" name="_subject" value="New Protection Review Request — POP Financial Group"><input type="hidden" name="lead_source" value="POP Financial Group Website"><input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><div class="form-card">
         <div class="form-title">Start My Free Protection Review</div>
         <p class="privacy-note" style="margin:0 0 18px;">Complete this short form and Russell will follow up personally.</p>
         <div class="form-row">
@@ -1295,6 +1295,13 @@
   });
 
   const leadForm = document.getElementById('lead-form');
+  const campaignParams = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(name => {
+    const incoming = campaignParams.get(name);
+    if (incoming) sessionStorage.setItem('pop_' + name, incoming);
+    const field = document.querySelector('[name="' + name + '"]');
+    if (field) field.value = incoming || sessionStorage.getItem('pop_' + name) || '';
+  });
   if (leadForm) {
     leadForm.addEventListener('submit', () => {
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'Protection Review Form' });
