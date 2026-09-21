@@ -70,10 +70,23 @@
     justify-content: space-between;
     height: 72px;
   }
+  .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+  }
   .nav-logo img {
     height: 48px;
     width: auto;
     display: block;
+  }
+  .nav-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .2px;
   }
   .nav-links {
     display: flex;
@@ -92,7 +105,7 @@
   .nav-links a:hover { color: var(--gold); }
   .nav-cta {
     background: var(--gold);
-    color: #fff !important;
+    color: var(--dark) !important;
     padding: 10px 22px !important;
     letter-spacing: 1px !important;
     transition: background 0.2s, transform 0.2s !important;
@@ -104,7 +117,7 @@
     background: var(--dark2);
     position: relative;
     overflow: hidden;
-    padding: 100px 5vw 80px;
+    padding: 84px 5vw 64px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,7 +188,7 @@
     position: relative;
     z-index: 1;
     font-size: 16px;
-    color: rgba(255,255,255,0.58);
+    color: rgba(255,255,255,0.78);
     line-height: 1.75;
     max-width: 520px;
     font-weight: 300;
@@ -193,7 +206,7 @@
   }
   .btn-gold {
     background: linear-gradient(135deg, var(--gold), var(--gold2));
-    color: #fff;
+    color: var(--dark);
     padding: 16px 40px;
     font-size: 13px;
     font-weight: 600;
@@ -268,12 +281,12 @@
 
   /* ── SECTIONS ── */
   .section {
-    padding: 88px 5vw;
+    padding: 72px 5vw;
     max-width: 1100px;
     margin: 0 auto;
   }
   .section-full {
-    padding: 88px 5vw;
+    padding: 72px 5vw;
   }
 
   .eyebrow {
@@ -575,7 +588,7 @@
   }
   .btn-big {
     background: linear-gradient(135deg, var(--gold), var(--gold2));
-    color: #fff;
+    color: var(--dark);
     padding: 18px 52px;
     font-size: 14px;
     font-weight: 700;
@@ -672,7 +685,7 @@
     width: 100%;
     padding: 14px;
     background: var(--gold);
-    color: #fff;
+    color: var(--dark);
     border: none;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
@@ -782,14 +795,18 @@
   .founder-copy { color: var(--muted); line-height: 1.8; margin-top: 16px; }
   .founder-note { border-left: 3px solid var(--gold); padding-left: 18px; margin-top: 22px; font-weight: 500; line-height: 1.6; }
 
-  /* ── BLOG / FORM / MOBILE CTA ── */
-  #soro-blog.blog-collapsed .soro-blog-card:nth-child(n+4) { display: none !important; }
-  .blog-actions { text-align: center; margin-top: 28px; }
-  .blog-toggle { cursor: pointer; border: 1px solid var(--gold); background: transparent; color: var(--gold); padding: 13px 24px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  /* ── FORM / MOBILE CTA ── */
   .consent { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 11px; line-height: 1.5; }
   .consent input { width: auto; margin-top: 2px; }
   .consent a { color: var(--gold); }
   .privacy-note { color: var(--muted); font-size: 11px; line-height: 1.5; margin-top: 12px; }
+  .optional-note { font-size: 10px; color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .form-status { display: none; margin-bottom: 18px; padding: 18px; border: 1px solid var(--gold); background: #fff; color: var(--text); font-size: 13px; line-height: 1.6; }
+  .form-status[data-fs-active] { display: block; }
+  .form-status strong { display: block; font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 6px; }
+  .form-status a { color: #6f4f08; font-weight: 700; }
+  .form-error { display: none; margin-bottom: 14px; color: #8a1c1c; font-size: 12px; }
+  .form-error[data-fs-active] { display: block; }
   .mobile-cta { display: none; }
   .footer-legal { display: flex; gap: 18px; list-style: none; margin-top: 12px; }
   .footer-legal a { color: rgba(255,255,255,.45); font-size: 11px; text-decoration: none; }
@@ -797,6 +814,7 @@
   /* ── MOBILE ── */
   @media (max-width: 768px) {
     .nav-links { display: none; }
+    .nav-brand-name { font-size: 13px; }
     .trust-item { padding: 20px 24px; flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(200,152,42,0.1); }
     .services-grid, .steps, .testi-grid, .path-grid { grid-template-columns: 1fr; }
     .why-grid, .contact-grid, .founder-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -817,7 +835,7 @@
       border-top: 1px solid rgba(200,152,42,.35);
     }
     .mobile-cta a { padding: 15px 10px; text-align: center; text-decoration: none; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .5px; }
-    .mobile-cta a:first-child { background: var(--gold); }
+    .mobile-cta a:first-child { background: var(--gold); color: var(--dark); }
   }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -833,13 +851,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo" aria-label="POP Financial Group home"><img src="pop-logo.png" alt="POP Financial Group"></a>
+  <a href="/" class="nav-logo" aria-label="POP Financial Group home"><img src="pop-logo.png" alt=""><span class="nav-brand-name">POP Financial Group</span></a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#meet-russell">Meet Russell</a></li>
-    <li><a href="join-pop.html">Join POP</a></li>
     <li><a href="#contact">Get Started</a></li>
     <li><a href="https://calendly.com/russpry-popfinancialgroup" target="_blank" rel="noopener" class="nav-cta" data-track="calendar">Book My Review</a></li>
   </ul>
@@ -871,8 +888,8 @@
     <span class="trust-label">Independent</span>
   </div>
   <div class="trust-item">
-    <span class="trust-num">2</span>
-    <span class="trust-label">Product Lines</span>
+    <span class="trust-num">Free</span>
+    <span class="trust-label">Protection Review</span>
   </div>
   <div class="trust-item">
     <span class="trust-num">MD·DC·VA</span>
@@ -1097,14 +1114,6 @@
   </div>
 </div>
 
-<!-- BLOG -->
-<div id="blog" class="section">
-  <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Insights</span></div>
-  <h2 class="section-h2">Latest From<br><em>The Blog</em></h2>
-  <div id="soro-blog" class="blog-collapsed"></div>
-  <div class="blog-actions"><button type="button" class="blog-toggle" id="blog-toggle" aria-expanded="false">View all articles</button></div>
-</div>
-
 <!-- CONTACT -->
 <div id="contact">
   <div class="section">
@@ -1113,7 +1122,7 @@
     <div style="margin-bottom:28px; text-align:center; background:linear-gradient(135deg,#181510,#1c1508); padding:32px; border:1px solid rgba(200,152,42,0.2);">
   <p style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#C8982A; font-weight:600; margin-bottom:8px;">Ready to Talk?</p>
   <p style="font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:20px; font-weight:300;">Book your free protection review directly on Russell's calendar.</p>
-  <a href="https://calendly.com/russpry-popfinancialgroup" target="_blank" rel="noopener" data-track="calendar" style="display:inline-block; background:linear-gradient(135deg,#C8982A,#E2B84A); color:#fff; padding:16px 44px; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; box-shadow:0 4px 24px rgba(200,152,42,0.3); transition:transform 0.2s;">Book My Free Review</a>
+  <a href="https://calendly.com/russpry-popfinancialgroup" target="_blank" rel="noopener" data-track="calendar" style="display:inline-block; background:linear-gradient(135deg,#C8982A,#E2B84A); color:#0D0D0D; padding:16px 44px; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; box-shadow:0 4px 24px rgba(200,152,42,0.3); transition:transform 0.2s;">Book My Free Review</a>
 </div>
 <div class="contact-grid">
       <div class="contact-info">
@@ -1134,24 +1143,26 @@
           <div><div class="cinfo-label">Hours</div><div class="cinfo-val">Mon – Fri: 9am – 6pm<br>Sat: By Appointment</div></div>
         </div>
       </div>
-      <form action="https://formspree.io/f/meednzak" method="POST" id="lead-form"><input type="hidden" name="_subject" value="New Protection Review Request — POP Financial Group"><input type="hidden" name="lead_source" value="POP Financial Group Website"><input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><div class="form-card">
+      <form action="https://formspree.io/f/meednzak" method="POST" id="lead-form"><input type="hidden" name="_subject" value="New Protection Review Request — POP Financial Group"><input type="hidden" name="lead_source" value="POP Financial Group Website"><input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none"><div class="form-card">
         <div class="form-title">Start My Free Protection Review</div>
-        <p class="privacy-note" style="margin:0 0 18px;">Complete this short form and Russell will follow up personally.</p>
+        <p class="privacy-note" style="margin:0 0 18px;">Four quick questions. Russell will follow up personally.</p>
+        <div class="form-status" data-fs-success aria-live="polite"><strong>Request received.</strong>Russell will follow up personally. Want to move faster? <a href="https://calendly.com/russpry-popfinancialgroup" target="_blank" rel="noopener" data-track="calendar">Choose a time now.</a></div>
+        <div class="form-error" data-fs-error role="alert">We could not send your request. Please call or text Russell at <a href="tel:+12402425365">(240) 242-5365</a>.</div>
         <div class="form-row">
           <label for="lead-name">Your Name</label>
-          <input type="text" id="lead-name" name="name" autocomplete="name" placeholder="First &amp; Last Name" required>
+          <input type="text" id="lead-name" name="name" autocomplete="name" placeholder="First &amp; Last Name" required data-fs-field>
         </div>
         <div class="form-row">
           <label for="lead-phone">Phone Number</label>
-          <input type="tel" id="lead-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(240) 000-0000" required>
+          <input type="tel" id="lead-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(240) 000-0000" required data-fs-field>
         </div>
         <div class="form-row">
-          <label for="lead-email">Email Address</label>
-          <input type="email" id="lead-email" name="email" autocomplete="email" placeholder="you@email.com" required>
+          <label for="lead-email">Email Address <span class="optional-note">(optional)</span></label>
+          <input type="email" id="lead-email" name="email" autocomplete="email" placeholder="you@email.com" data-fs-field>
         </div>
         <div class="form-row">
           <label for="coverage-type">What would you like help with?</label>
-          <select name="coverage_type" id="coverage-type" required>
+          <select name="coverage_type" id="coverage-type" required data-fs-field>
             <option value="">Select a coverage type...</option>
             <option>Term Life Insurance</option>
             <option>Whole / Universal Life</option>
@@ -1165,7 +1176,7 @@
         </div>
         <div class="form-row">
           <label for="lead-state">Where do you live?</label>
-          <select name="state" id="lead-state" required>
+          <select name="state" id="lead-state" required data-fs-field>
             <option value="">Select your state...</option>
             <option value="MD">Maryland</option>
             <option value="DC">Washington, DC</option>
@@ -1173,21 +1184,8 @@
             <option value="Other">Another state</option>
           </select>
         </div>
-        <div class="form-row">
-          <label for="lead-time">Best time to reach you</label>
-          <select name="best_contact_time" id="lead-time" required>
-            <option value="">Choose a time...</option>
-            <option>Morning</option>
-            <option>Afternoon</option>
-            <option>Evening</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="lead-message">Message (Optional)</label>
-          <textarea name="message" id="lead-message" placeholder="Tell us a little about your situation..."></textarea>
-        </div>
         <label class="consent"><input type="checkbox" name="contact_consent" required><span>I agree that POP Financial Group may contact me by phone, text, or email about my request. Message and data rates may apply. Consent is not a condition of purchase. See the <a href="privacy.html">Privacy Policy</a>.</span></label>
-        <button class="form-submit" type="submit" data-track="lead-submit">Request My Free Review →</button>
+        <button class="form-submit" type="submit" data-track="lead-submit" data-fs-submit-btn>Request My Free Review →</button>
         <p class="privacy-note">Do not include Social Security numbers, banking information, or medical details in this form.</p>
       </div></form>
     </div>
@@ -1275,18 +1273,6 @@
     });
   });
 
-  // Keep the homepage focused while still making the full resource library available.
-  const blogToggle = document.getElementById('blog-toggle');
-  const blog = document.getElementById('soro-blog');
-  if (blogToggle && blog) {
-    blogToggle.addEventListener('click', () => {
-      const expanded = blogToggle.getAttribute('aria-expanded') === 'true';
-      blogToggle.setAttribute('aria-expanded', String(!expanded));
-      blog.classList.toggle('blog-collapsed', expanded);
-      blogToggle.textContent = expanded ? 'View all articles' : 'Show fewer articles';
-    });
-  }
-
   // Record the conversion actions that matter in Google Ads when gtag is available.
   document.querySelectorAll('[data-track]').forEach(el => {
     el.addEventListener('click', () => {
@@ -1308,12 +1294,32 @@
   });
   if (leadForm) {
     leadForm.addEventListener('submit', () => {
-      if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'Protection Review Form' });
+      if (typeof gtag === 'function') gtag('event', 'form_start', { event_category: 'conversion', event_label: 'Protection Review Form' });
     });
   }
 
 
 </script>
-<script src="https://app.trysoro.com/api/embed/59b281e6-d377-422b-91e9-db74c41be0b9" defer></script>
+<script>
+  window.formspree = window.formspree || function () {
+    (formspree.q = formspree.q || []).push(arguments);
+  };
+  formspree('initForm', {
+    formElement: '#lead-form',
+    formId: 'meednzak',
+    onSuccess: function () {
+      var success = document.querySelector('[data-fs-success]');
+      var form = document.getElementById('lead-form');
+      if (success) {
+        success.setAttribute('data-fs-active', '');
+        success.setAttribute('tabindex', '-1');
+        success.focus();
+      }
+      if (form) form.reset();
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'conversion', event_label: 'Protection Review Form Success' });
+    }
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
