@@ -279,6 +279,40 @@
     color: rgba(255,255,255,0.4);
   }
 
+  /* ── CARRIER NETWORK ── */
+  .carrier-section {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+  .carrier-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 54px 5vw 60px;
+    text-align: center;
+  }
+  .carrier-inner .eyebrow { justify-content: center; }
+  .carrier-inner .section-p { margin: 0 auto; max-width: 700px; }
+  .carrier-logos {
+    margin: 30px auto 0;
+    padding: 22px;
+    max-width: 980px;
+    background: #fff;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 45px rgba(13,13,13,.06);
+  }
+  .carrier-logos img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .carrier-note {
+    max-width: 820px;
+    margin: 18px auto 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
   /* ── SECTIONS ── */
   .section {
     padding: 72px 5vw;
@@ -816,6 +850,8 @@
     .nav-links { display: none; }
     .nav-brand-name { font-size: 13px; }
     .trust-item { padding: 20px 24px; flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(200,152,42,0.1); }
+    .carrier-inner { padding: 44px 5vw 48px; }
+    .carrier-logos { padding: 10px; margin-top: 24px; }
     .services-grid, .steps, .testi-grid, .path-grid { grid-template-columns: 1fr; }
     .why-grid, .contact-grid, .founder-grid { grid-template-columns: 1fr; gap: 32px; }
     .hero { padding-top: 72px; }
@@ -896,6 +932,19 @@
     <span class="trust-label">Licensed</span>
   </div>
 </div>
+
+<!-- CARRIER NETWORK -->
+<section class="carrier-section" id="carriers" aria-labelledby="carrier-heading">
+  <div class="carrier-inner">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Carrier Access</span></div>
+    <h2 class="section-h2" id="carrier-heading">More Choices.<br><em>A More Informed Decision.</em></h2>
+    <p class="section-p">As an independent agency, POP Financial Group can compare solutions across 30+ carriers. These are select carriers available through our network.</p>
+    <div class="carrier-logos">
+      <img src="carrier-network.webp" width="1276" height="486" loading="lazy" decoding="async" alt="Select insurance carriers including National Life Group, Foresters Financial, Pacific Life, Nationwide, F&amp;G, Mutual of Omaha, John Hancock, Global Atlantic, and American National">
+    </div>
+    <p class="carrier-note">Carrier and product availability varies by state, eligibility, underwriting, and appointment status. Carrier logos and trademarks belong to their respective owners.</p>
+  </div>
+</section>
 
 <!-- CHOOSE YOUR PATH -->
 <section class="path-section" aria-labelledby="path-heading">
@@ -1205,6 +1254,7 @@
       <ul class="footer-links">
         <li><a href="#services">Life Insurance</a></li>
         <li><a href="#services">Business Life Solutions</a></li>
+        <li><a href="#carriers">Carrier Network</a></li>
               </ul>
     </div>
     <div>
